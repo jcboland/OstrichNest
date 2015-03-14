@@ -4,11 +4,20 @@ class Folder{
   Folder parent;
   String location;
   long weight;
+  String name;
   
   Folder(String location){
-    this.location = location + "//";
+    this.location = location + "\\";
     this.children = new ArrayList<Folder>();
     this.leaves = new ArrayList<Leaf>();
+    
+    String[] items = split(this.location, "\\");    
+    this.name = items[items.length-2];
+    
+
+  }
+  String getName(){
+    return this.name;
   }
   
   void addChild(Folder child){
